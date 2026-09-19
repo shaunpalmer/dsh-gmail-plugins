@@ -1,4 +1,4 @@
-# @google-workspace/dsh-gmail — profile patch layer.
+# @shaunpalmer/dsh-gmail — profile patch layer.
 #
 # This file is a HOST-PLANE composition patch (top-level YAML array of loader
 # patch entries, exactly like a profile's cordis.patch.yml). The Gmail plugin
@@ -17,7 +17,7 @@
 
 - insert:
     - id: gmail
-      name: '@google-workspace/dsh-gmail'
+      name: '@shaunpalmer/dsh-gmail'
       config:
         # ── OAuth2 (refs resolve via ctx.credentials, then process.env) ──────
         clientIdRef: GMAIL_CLIENT_ID

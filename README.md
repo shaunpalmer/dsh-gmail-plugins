@@ -13,7 +13,7 @@ A complete, production-ready **Gmail plugin for [DeepSeek Harness](https://githu
 ## 🤖 LLM-readable summary
 
 - **What:** a single Cordis plugin that extends DSH agents with 63 `gmail_*` tools + 2 polling triggers.
-- **Install:** `dsh plugin --profile web add github:sakthiveltofficial/dsh-gmail-plugins`, then add one row to your profile patch (or agent preset) — see [Install](#-install).
+- **Install:** `dsh plugin --profile web add github:shaunpalmer/dsh-gmail-plugins`, then add one row to your profile patch (or agent preset) — see [Install](#-install).
 - **Tools:** `gmail_send_email`, `gmail_fetch_emails`, `gmail_fetch_message_by_message_id`, `gmail_fetch_message_by_thread_id`, `gmail_list_threads`, `gmail_reply_to_thread`, `gmail_create_email_draft`, `gmail_send_draft`, `gmail_forward_message`, label/filter/trash/settings/contacts tools — the full list is in the [tool table](#-tools).
 - **Auth:** OAuth2 (`gmail.modify`, `gmail.settings.basic`, `gmail.compose`, `gmail.send`, `contacts.readonly` scopes). Credentials are **never stored in config** — env-var references resolved per operation via `ctx.credentials`. `gmail_authorize` runs the interactive Google sign-in and **captures + stores the refresh token automatically**; only `GMAIL_CLIENT_ID` / `GMAIL_CLIENT_SECRET` need to be set.
 - **Triggers:** `gmail/message-received` (new mail) and `gmail/message-sent` (sent mail) — poll-based, seeded on first activation so the mailbox is never replayed.
@@ -49,10 +49,10 @@ A complete, production-ready **Gmail plugin for [DeepSeek Harness](https://githu
 ### 1. Install the package from this GitHub repository
 
 ```sh
-dsh plugin --profile web add github:sakthiveltofficial/dsh-gmail-plugins
+dsh plugin --profile web add github:shaunpalmer/dsh-gmail-plugins
 ```
 
-This installs the `@google-workspace/dsh-gmail` plugin package into the profile (the repo root is the package — no build step needed).
+This installs the `@shaunpalmer/dsh-gmail` plugin package into the profile (the repo root is the package — no build step needed).
 
 ### 2. Mount the plugin in a composition
 
@@ -63,7 +63,7 @@ The plugin publishes no services — it only registers tools into the host `tool
 ```yaml
 - insert:
     - id: gmail
-      name: '@google-workspace/dsh-gmail'
+      name: '@shaunpalmer/dsh-gmail'
       config:
         clientIdRef: GMAIL_CLIENT_ID
         clientSecretRef: GMAIL_CLIENT_SECRET
@@ -78,7 +78,7 @@ The plugin publishes no services — it only registers tools into the host `tool
 
 ```yaml
 - id: gmail
-  name: '@google-workspace/dsh-gmail'
+  name: '@shaunpalmer/dsh-gmail'
   config:
     clientIdRef: GMAIL_CLIENT_ID
     clientSecretRef: GMAIL_CLIENT_SECRET

@@ -9,7 +9,7 @@
 # Place this row anywhere in your agent preset's top-level list:
 
 - id: gmail
-  name: '@google-workspace/dsh-gmail'
+  name: '@shaunpalmer/dsh-gmail'
   config:
     clientIdRef: GMAIL_CLIENT_ID
     clientSecretRef: GMAIL_CLIENT_SECRET
